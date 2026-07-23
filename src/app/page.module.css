@@ -42,13 +42,26 @@
 
 /* ---------- illustration ---------- */
 
-.character {
+.characterWrap {
   position: absolute;
   width: min(155px, 20vh);
-  height: auto;
   right: 30px;
   bottom: 124px;
   z-index: 0;
+}
+
+.characterImg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.characterImg.characterHidden {
+  opacity: 0;
 }
 
 /* ---------- social links ---------- */
@@ -226,7 +239,7 @@
     padding: 64px 92px 0;
   }
 
-  .character {
+  .characterWrap {
     right: 119px;
   }
 

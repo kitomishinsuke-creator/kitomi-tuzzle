@@ -18,8 +18,36 @@ export default function Home() {
   const [open, setOpen] = useState(false);
   const [maxHeight, setMaxHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [bowing, setBowing] = useState(false);
+  const bowTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const toggle = () => setOpen((v) => !v);
+
+  const startBow = () => {
+    if (bowTimeout.current) {
+      clearTimeout(bowTimeout.current);
+      bowTimeout.current = null;
+    }
+    setBowing(true);
+  };
+
+  const endBow = () => setBowing(false);
+
+  // タッチデバイス（hover非対応）向け: タップした瞬間に一時的にお辞儀させる
+  const tapBow = () => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(hover: hover)").matches) return;
+
+    setBowing(true);
+    if (bowTimeout.current) clearTimeout(bowTimeout.current);
+    bowTimeout.current = setTimeout(() => setBowing(false), 600);
+  };
+
+  const bowTriggerProps = {
+    onMouseEnter: startBow,
+    onMouseLeave: endBow,
+    onTouchStart: tapBow,
+  };
 
   useEffect(() => {
     if (open && contentRef.current) {
@@ -54,12 +82,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className={styles.character}
-          src="/images/character.png"
-          alt="アリクイのサラリーマン"
-        />
+        <div className={styles.characterWrap}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={`${styles.characterImg} ${
+              bowing ? styles.characterHidden : ""
+            }`}
+            src="/images/character.png"
+            alt="アリクイのサラリーマン"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={`${styles.characterImg} ${
+              bowing ? "" : styles.characterHidden
+            }`}
+            src="/images/character-bow.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
 
         <ul className={styles.social}>
           <li>
@@ -67,6 +108,7 @@ export default function Home() {
               href="https://x.com/Kitomishinsuke"
               target="_blank"
               rel="noreferrer"
+              {...bowTriggerProps}
             >
               X
             </a>
@@ -76,6 +118,7 @@ export default function Home() {
               href="https://www.instagram.com/tuzzle_ktm/"
               target="_blank"
               rel="noreferrer"
+              {...bowTriggerProps}
             >
               Instagram
             </a>
@@ -92,6 +135,7 @@ export default function Home() {
           className={styles.panelHeader}
           onClick={toggle}
           aria-expanded={open}
+          {...bowTriggerProps}
         >
           <span className={styles.panelHeaderText}>
             <span className={styles.mincho}>個展開催</span>
