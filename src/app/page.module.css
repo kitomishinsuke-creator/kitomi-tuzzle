@@ -73,6 +73,8 @@
   left: auto;
   right: 0;
   width: min(230px, 30vh);
+  -webkit-transform: translateX(20px) translateZ(0);
+  transform: translateX(20px) translateZ(0);
 }
 
 /* ---------- social links ---------- */
