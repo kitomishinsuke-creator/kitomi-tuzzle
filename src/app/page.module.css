@@ -72,8 +72,8 @@
   left: auto;
   right: 0;
   width: min(230px, 30vh);
-  -webkit-transform: translate(30px, 10px) translateZ(0);
-  transform: translate(30px, 10px) translateZ(0);
+  -webkit-transform: translate(35px, 10px) translateZ(0);
+  transform: translate(35px, 10px) translateZ(0);
 }
 
 /* ---------- social links ---------- */
