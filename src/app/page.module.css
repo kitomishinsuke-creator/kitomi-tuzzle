@@ -161,7 +161,7 @@
 }
 
 .exhibitionTitle {
-  width: 80%;
+  width: 100%;
   height: auto;
   margin-bottom: 24px;
 }
@@ -251,6 +251,10 @@
 
   .characterWrap {
     right: 119px;
+  }
+
+  .exhibitionTitle {
+    width: 80%;
   }
 
   .social {
