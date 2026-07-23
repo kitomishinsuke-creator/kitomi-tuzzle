@@ -44,7 +44,7 @@
 
 .characterWrap {
   position: absolute;
-  width: min(155px, 20vh);
+  width: min(230px, 30vh);
   right: 30px;
   bottom: 124px;
   z-index: 0;
