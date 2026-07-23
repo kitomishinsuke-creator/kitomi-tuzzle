@@ -124,7 +124,9 @@ export default function Home() {
             </a>
           </li>
           <li>
-            <a href="mailto:kitomishinsuke@gmail.com">Contact</a>
+            <a href="mailto:kitomishinsuke@gmail.com" {...bowTriggerProps}>
+              Contact
+            </a>
           </li>
         </ul>
       </main>
