@@ -1,0 +1,260 @@
+.page {
+  position: relative;
+  height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- top area: name/tagline + illustration ---------- */
+
+.topSection {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 48px 32px 0;
+}
+
+.introBlock {
+  position: relative;
+}
+
+.name {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-anteater-hand);
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 0.92;
+  white-space: nowrap;
+}
+
+.tagline {
+  margin: 27px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-lora);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* ---------- illustration ---------- */
+
+.character {
+  position: absolute;
+  width: min(155px, 20vh);
+  height: auto;
+  right: 30px;
+  bottom: 124px;
+  z-index: 0;
+}
+
+/* ---------- social links ---------- */
+
+.social {
+  flex: 0 0 auto;
+  margin: 0 0 126px;
+  padding: 0 32px;
+  list-style: none;
+  font-family: var(--font-lora);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.social a {
+  text-decoration: none;
+}
+
+/* ---------- accordion panel ---------- */
+
+.panel {
+  position: fixed;
+  left: 25px;
+  right: 25px;
+  bottom: 0;
+  z-index: 10;
+  background: var(--color-card);
+  border-radius: 12px 12px 0 0;
+  max-height: 88svh;
+  overflow-y: auto;
+}
+
+.panelHeader {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+  color: var(--color-text);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.panelHeaderText {
+  white-space: nowrap;
+  color: var(--color-text);
+}
+
+.mincho {
+  font-family: var(--font-biz-mincho);
+}
+
+.lora {
+  font-family: var(--font-lora);
+}
+
+.chevron {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+  transform: rotate(0deg);
+}
+
+.chevron[data-open="true"] {
+  transform: rotate(180deg);
+}
+
+.panelBodyWrapper {
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.panelBody {
+  padding: 0 32px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.exhibitionTitle {
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 0 0 32px;
+}
+
+.venueSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.venue {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.mapEmbed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mapEmbed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.hueBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.hueLogo {
+  width: 64px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.webLink {
+  font-size: 12px;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+
+.venueInfo {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.venueInfo p {
+  margin: 0 0 8px;
+}
+
+.infoLabel {
+  font-family: var(--font-biz-mincho);
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.mapLink {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-lora);
+  text-decoration: underline;
+}
+
+/* ---------- desktop ---------- */
+
+@media (min-width: 1024px) {
+  .topSection {
+    padding: 64px 92px 0;
+  }
+
+  .character {
+    right: 119px;
+  }
+
+  .social {
+    padding: 0 90px;
+  }
+
+  .panel {
+    left: 90px;
+    right: auto;
+    width: 656px;
+    max-height: 80svh;
+  }
+
+  .venueSection {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .venue {
+    flex-wrap: nowrap;
+    flex: 0 1 auto;
+  }
+
+  .mapEmbed {
+    width: 220px;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}
