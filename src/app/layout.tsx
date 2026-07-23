@@ -28,8 +28,30 @@ const bizUDMincho = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.kitomi-tuzzle.com"),
   title: "Kitomi Shinsuke",
   description: "design / illustration / animation",
+  openGraph: {
+    title: "Kitomi Shinsuke",
+    description: "design / illustration / animation",
+    url: "https://www.kitomi-tuzzle.com",
+    siteName: "Kitomi Shinsuke",
+    images: [
+      {
+        url: "/images/og.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kitomi Shinsuke",
+    description: "design / illustration / animation",
+    images: ["/images/og.png"],
+  },
   other: {
     "format-detection": "telephone=no, date=no, address=no, email=no",
   },
