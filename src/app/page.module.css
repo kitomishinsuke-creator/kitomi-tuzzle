@@ -58,10 +58,6 @@
   height: auto;
   opacity: 1;
   image-rendering: auto;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 }
 
 .characterImg.characterHidden {
@@ -72,6 +68,8 @@
   left: auto;
   right: 0;
   width: min(230px, 30vh);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-transform: translate(35px, 10px) translateZ(0);
   transform: translate(35px, 10px) translateZ(0);
 }
