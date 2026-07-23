@@ -44,7 +44,7 @@
 
 .characterWrap {
   position: absolute;
-  width: min(230px, 30vh);
+  width: min(155px, 20vh);
   right: 30px;
   bottom: 124px;
   z-index: 0;
@@ -62,6 +62,12 @@
 
 .characterImg.characterHidden {
   opacity: 0;
+}
+
+.characterBowImg {
+  left: auto;
+  right: 0;
+  width: min(230px, 30vh);
 }
 
 /* ---------- social links ---------- */
