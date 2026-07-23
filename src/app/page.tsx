@@ -124,6 +124,16 @@ export default function Home() {
             </a>
           </li>
           <li>
+            <a
+              href="https://soundcloud.com/shinsuke-kitomi/sets/the-anteater-clerks-orchestra"
+              target="_blank"
+              rel="noreferrer"
+              {...bowTriggerProps}
+            >
+              SoundCloud
+            </a>
+          </li>
+          <li>
             <a href="mailto:kitomishinsuke@gmail.com" {...bowTriggerProps}>
               Contact
             </a>
