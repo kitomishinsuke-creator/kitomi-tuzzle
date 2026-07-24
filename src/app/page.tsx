@@ -89,6 +89,12 @@ export default function Home() {
               <li>illustration</li>
               <li>animation</li>
             </ul>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={styles.tuzzleLogo}
+              src="/images/tuzzle.svg"
+              alt="TUZZLE"
+            />
           </div>
         </div>
 

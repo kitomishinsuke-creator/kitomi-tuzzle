@@ -40,6 +40,13 @@
   line-height: 1.2;
 }
 
+.tuzzleLogo {
+  display: block;
+  width: 94px;
+  height: auto;
+  margin-top: 28px;
+}
+
 /* ---------- illustration ---------- */
 
 .characterWrap {
