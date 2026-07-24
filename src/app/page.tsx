@@ -49,6 +49,15 @@ export default function Home() {
     onTouchStart: tapBow,
   };
 
+  // 訪問時点でお辞儀イラストを先読み・デコードしておき、初回ホバー時の読み込みラグ（パチっと感）を防ぐ
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = "/images/character-bow.png";
+    if (typeof img.decode === "function") {
+      img.decode().catch(() => {});
+    }
+  }, []);
+
   useEffect(() => {
     if (open && contentRef.current) {
       setMaxHeight(contentRef.current.scrollHeight);
@@ -67,6 +76,7 @@ export default function Home() {
 
   return (
     <>
+      <link rel="preload" as="image" href="/images/character-bow.png" />
       <main className={styles.page}>
         <div className={styles.topSection}>
           <div className={styles.introBlock}>
@@ -90,6 +100,8 @@ export default function Home() {
             }`}
             src="/images/character.png"
             alt="アリクイのサラリーマン"
+            loading="eager"
+            decoding="sync"
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -99,6 +111,8 @@ export default function Home() {
             src="/images/character-bow.png"
             alt=""
             aria-hidden="true"
+            loading="eager"
+            decoding="sync"
           />
         </div>
 
