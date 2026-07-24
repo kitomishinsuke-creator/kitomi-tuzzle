@@ -23,7 +23,15 @@ export default function Home() {
 
   const toggle = () => setOpen((v) => !v);
 
+  // hover対応デバイス（マウス）かどうか。タッチ操作後にブラウザが発火させる
+  // 疑似的な mouseenter/mouseleave まで拾ってしまい、お辞儀状態が固定される
+  // 不具合を防ぐため、hover非対応デバイスではマウス系ハンドラを完全に無視する。
+  const isHoverCapable = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: hover)").matches;
+
   const startBow = () => {
+    if (!isHoverCapable()) return;
     if (bowTimeout.current) {
       clearTimeout(bowTimeout.current);
       bowTimeout.current = null;
@@ -31,12 +39,14 @@ export default function Home() {
     setBowing(true);
   };
 
-  const endBow = () => setBowing(false);
+  const endBow = () => {
+    if (!isHoverCapable()) return;
+    setBowing(false);
+  };
 
   // タッチデバイス（hover非対応）向け: タップした瞬間に一時的にお辞儀させる
   const tapBow = () => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(hover: hover)").matches) return;
+    if (isHoverCapable()) return;
 
     setBowing(true);
     if (bowTimeout.current) clearTimeout(bowTimeout.current);
