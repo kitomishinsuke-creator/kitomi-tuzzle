@@ -161,6 +161,14 @@ export default function Home() {
         </ul>
       </main>
 
+      {open && (
+        <div
+          className={styles.panelBackdrop}
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       <section className={styles.panel}>
         <button
           type="button"

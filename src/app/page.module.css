@@ -101,6 +101,13 @@
 
 /* ---------- accordion panel ---------- */
 
+.panelBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  background: transparent;
+}
+
 .panel {
   position: fixed;
   left: 25px;
