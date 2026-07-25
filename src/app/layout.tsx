@@ -53,6 +53,9 @@ export const metadata: Metadata = {
     description: "design / illustration / animation",
     images: ["/images/og.png"],
   },
+  verification: {
+    google: "4MX-f8hJfcjzwRdiGELAi-BsebSMZkIr1-zunyVb5vo",
+  },
   other: {
     "format-detection": "telephone=no, date=no, address=no, email=no",
   },
