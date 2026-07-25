@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const anteaterHand = localFont({
@@ -68,6 +69,7 @@ export default function RootLayout({
       className={`${anteaterHand.variable} ${lora.variable} ${bizUDMincho.variable}`}
     >
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-17NLXQJXQY" />
     </html>
   );
 }
